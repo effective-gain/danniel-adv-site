@@ -1,0 +1,38 @@
+# danniel.adv.br
+
+# O index.html tem precedencia sobre qualquer placeholder da hospedagem
+# (default.php). Assim nao e necessario apagar nada para o site aparecer.
+DirectoryIndex index.html index.php
+
+RewriteEngine On
+
+# www -> dominio raiz
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# NAO forcar HTTPS aqui. Ative "Forcar HTTPS" no hPanel somente DEPOIS
+# que o certificado SSL estiver emitido. Forcar antes deixa o site inacessivel.
+
+# Impede download do pacote de deploy caso ele fique na pasta
+<FilesMatch "\.(zip|tar|gz)$">
+  Require all denied
+</FilesMatch>
+
+# Nao expor o placeholder da hospedagem
+<FilesMatch "^default\.php$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg   "access plus 6 months"
+  ExpiresByType image/webp   "access plus 6 months"
+  ExpiresByType text/css     "access plus 1 month"
+  ExpiresByType text/html    "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+ErrorDocument 404 /index.html

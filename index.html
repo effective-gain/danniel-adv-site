@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Danniel Stehling Fernandes — Advogado | OAB/MG 103.994
+  </title>
+  <style>
+   :root{
+    --navy:#1a1a2e;--navy-2:#16213e;--gold:#b8945f;
+    --bg:#ffffff;--surface:#f7f7f9;--text:#1a1a2e;--muted:#5b6070;--border:#e3e4e9;
+    --radius:4px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#12131a;--surface:#191b24;--text:#eceef4;--muted:#a2a8bb;--border:#2a2d3a;}
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  header{position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+  .brand{font-family:var(--serif);font-size:1.05rem;white-space:nowrap}
+  .brand small{display:block;font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .menu{display:none;gap:26px;list-style:none}
+  .menu a{color:var(--muted);text-decoration:none;font-size:.86rem;padding:4px 0;
+    border-bottom:1px solid transparent;transition:.18s}
+  .menu a:hover,.menu a:focus-visible{color:var(--text);border-bottom-color:var(--gold)}
+  @media(min-width:980px){.menu{display:flex}}
+  .lang{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .lang button,.lang a{background:none;border:0;cursor:pointer;font:inherit;font-size:.72rem;
+    font-weight:600;letter-spacing:.08em;padding:7px 11px;color:var(--muted);transition:.18s;
+    text-decoration:none;display:inline-block;line-height:1.4}
+  .lang a:hover,.lang a:focus-visible{background:var(--navy);color:#fff}
+  @media (prefers-color-scheme:dark){.lang a:hover,.lang a:focus-visible{background:var(--gold);color:#12131a}}
+  .lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+  @media (prefers-color-scheme:dark){.lang button[aria-pressed="true"]{background:var(--gold);color:#12131a}}
+
+  /* hero */
+  .hero{padding:84px 0 76px;border-bottom:1px solid var(--border)}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media(min-width:860px){.hero-grid{grid-template-columns:1.2fr .8fr;gap:64px}}
+  .eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:20px}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5.4vw,3.4rem);
+    line-height:1.12;letter-spacing:-.01em;margin-bottom:8px}
+  .oab{font-size:.95rem;color:var(--muted);margin-bottom:26px}
+  .lede{font-size:clamp(1.02rem,2.2vw,1.22rem);max-width:52ch;color:var(--muted);line-height:1.6}
+  .rule{width:56px;height:2px;background:var(--gold);margin-top:32px}
+  .portrait{position:relative;order:-1}
+  @media(min-width:860px){.portrait{order:0}}
+  .portrait img{width:100%;max-width:380px;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;
+    display:block;border-radius:var(--radius);filter:saturate(.9) contrast(1.03);
+    background:var(--surface)}
+  .portrait::after{content:"";position:absolute;left:-10px;bottom:-10px;width:72px;height:72px;
+    border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);pointer-events:none}
+  @media(min-width:860px){.portrait img{margin-left:auto}}
+
+  section{padding:78px 0;border-bottom:1px solid var(--border)}
+  .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin-bottom:26px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,3.8vw,2.05rem);
+    line-height:1.25;margin-bottom:24px}
+  .prose p{max-width:68ch;color:var(--muted);margin-bottom:16px}
+  .prose p:last-child{margin-bottom:0}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);
+    border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+  .card{background:var(--bg);padding:30px 26px}
+  .card h3{font-family:var(--serif);font-weight:400;font-size:1.13rem;margin-bottom:10px}
+  .card p{font-size:.92rem;color:var(--muted);line-height:1.6}
+  .card .num{font-size:.7rem;letter-spacing:.1em;color:var(--gold);font-weight:700;
+    display:block;margin-bottom:12px}
+
+  .tl{list-style:none;border-left:1px solid var(--border);margin-left:6px}
+  .tl li{position:relative;padding:0 0 32px 30px}
+  .tl li:last-child{padding-bottom:0}
+  .tl li::before{content:"";position:absolute;left:-4.5px;top:9px;width:8px;height:8px;
+    border-radius:50%;background:var(--gold)}
+  .tl .period{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);font-weight:600}
+  .tl .role{font-family:var(--serif);font-size:1.08rem;margin:5px 0 3px}
+  .tl .org{font-size:.9rem;color:var(--muted)}
+
+  .stack{list-style:none;display:grid;gap:1px;background:var(--border);
+    border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .stack li{background:var(--bg);padding:22px 26px;display:flex;gap:20px;
+    flex-wrap:wrap;align-items:baseline;justify-content:space-between}
+  .stack .deg{font-family:var(--serif);font-size:1.02rem}
+  .stack .inst{font-size:.87rem;color:var(--muted);margin-top:3px}
+  .stack .yr{font-size:.78rem;color:var(--gold);font-weight:700;letter-spacing:.06em}
+
+  .contact{display:grid;gap:1px;background:var(--border);
+    border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  @media(min-width:720px){.contact{grid-template-columns:1fr 1fr}}
+  .ci{background:var(--bg);padding:28px 26px}
+  .ci .k{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin-bottom:9px}
+  .ci .v{font-size:1rem;line-height:1.55}
+  .ci a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--gold);
+    padding-bottom:1px;transition:.18s}
+  .ci a:hover{color:var(--gold)}
+
+  footer{padding:44px 0 56px}
+  .fnote{font-size:.8rem;color:var(--muted);max-width:74ch;line-height:1.6}
+  .fbar{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center;
+    margin-top:26px;padding-top:22px;border-top:1px solid var(--border);
+    font-size:.78rem;color:var(--muted)}
+  /* whatsapp float */
+  .wa{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;
+    gap:10px;padding:13px 18px 13px 15px;border-radius:999px;text-decoration:none;
+    background:var(--navy);color:#fff;font-size:.86rem;font-weight:600;letter-spacing:.01em;
+    box-shadow:0 6px 24px rgba(0,0,0,.22);transition:transform .18s,background .18s}
+  .wa:hover,.wa:focus-visible{transform:translateY(-2px);background:var(--navy-2)}
+  .wa svg{width:21px;height:21px;flex:none;fill:currentColor}
+  .wa span{display:none}
+  @media(min-width:560px){.wa span{display:inline}}
+  @media (prefers-color-scheme:dark){.wa{background:var(--gold);color:#12131a}}
+  @media (prefers-reduced-motion:reduce){.wa{transition:none}}
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+  </style>
+  <meta content="Advogado em Belo Horizonte com atuação em direito tributário, contencioso cível e tributário, governança corporativa e direito imigratório. OAB/MG 103.994." name="description"/>
+  <link href="https://danniel.adv.br/" rel="canonical"/>
+  <link href="https://danniel.adv.br/" hreflang="pt-BR" rel="alternate"/>
+  <link href="https://danniel.adv.br/en/" hreflang="en" rel="alternate"/>
+  <link href="https://danniel.adv.br/" hreflang="x-default" rel="alternate"/>
+  <meta content="profile" property="og:type"/>
+  <meta content="Danniel Stehling Fernandes — Advogado | OAB/MG 103.994" property="og:title"/>
+  <meta content="Advogado em Belo Horizonte com atuação em direito tributário, contencioso cível e tributário, governança corporativa e direito imigratório. OAB/MG 103.994." property="og:description"/>
+  <meta content="https://danniel.adv.br/" property="og:url"/>
+  <meta content="https://danniel.adv.br/img/og.jpg" property="og:image"/>
+  <meta content="pt_BR" property="og:locale"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="index, follow" name="robots"/>
+  <script type="application/ld+json">
+   {
+  "@context": "https://schema.org",
+  "@type": "Attorney",
+  "name": "Danniel Stehling Fernandes",
+  "url": "https://danniel.adv.br/",
+  "image": "https://danniel.adv.br/img/og.jpg",
+  "telephone": "+55-31-3462-4668",
+  "email": "dannielf@gmail.com",
+  "identifier": "OAB/MG 103.994",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Belmiro Braga, 329, 2º andar",
+    "addressLocality": "Belo Horizonte",
+    "addressRegion": "MG",
+    "postalCode": "30770-550",
+    "addressCountry": "BR"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Belo Horizonte"
+  },
+  "knowsLanguage": [
+    "pt-BR",
+    "en"
+  ],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Ordem dos Advogados do Brasil — Seção Minas Gerais"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Pontifícia Universidade Católica de Minas Gerais"
+  },
+  "knowsAbout": [
+    "Direito Tributário",
+    "Contencioso Cível e Tributário",
+    "Governança Corporativa",
+    "Direito Imigratório",
+    "Contratos Empresariais",
+    "Direito Registral e Notarial",
+    "Parcerias Público-Privadas"
+  ]
+}
+  </script>
+ </head>
+ <body>
+  <header>
+   <div class="wrap nav">
+    <div class="brand">
+     Danniel Stehling Fernandes
+     <small>
+      Advogado · OAB/MG 103.994
+     </small>
+    </div>
+    <nav>
+     <ul class="menu">
+      <li>
+       <a href="#sobre">
+        Sobre
+       </a>
+      </li>
+      <li>
+       <a href="#areas">
+        Áreas de atuação
+       </a>
+      </li>
+      <li>
+       <a href="#trajetoria">
+        Trajetória
+       </a>
+      </li>
+      <li>
+       <a href="#publicacoes">
+        Publicações
+       </a>
+      </li>
+      <li>
+       <a href="#formacao">
+        Formação
+       </a>
+      </li>
+      <li>
+       <a href="#contato">
+        Contato
+       </a>
+      </li>
+     </ul>
+    </nav>
+    <div aria-label="Idioma / Language" class="lang" role="group">
+     <a href="/en/" hreflang="en" title="English version">
+      EN
+     </a>
+    </div>
+   </div>
+  </header>
+  <main>
+   <div class="hero">
+    <div class="wrap hero-grid">
+     <div>
+      <p class="eyebrow">
+       Belo Horizonte · Minas Gerais
+      </p>
+      <h1>
+       Danniel Stehling Fernandes
+      </h1>
+      <p class="oab">
+       Advogado · OAB/MG 103.994
+      </p>
+      <p class="lede">
+       Contencioso cível e tributário, com atuação concentrada em créditos tributários e na revisão de tributos a recolher — nas esferas administrativa e judicial.
+      </p>
+      <div class="rule">
+      </div>
+     </div>
+     <figure class="portrait">
+      <picture>
+       <source srcset="img/portrait.webp" type="image/webp"/>
+       <img alt="Danniel Stehling Fernandes" decoding="async" fetchpriority="high" height="950" src="img/portrait.jpg" width="760"/>
+      </picture>
+     </figure>
+    </div>
+   </div>
+   <section id="sobre">
+    <div class="wrap">
+     <p class="label">
+      Sobre
+     </p>
+     <h2>
+      Vinte anos entre o contencioso e a mesa de negociação
+     </h2>
+     <div class="prose">
+      <p>
+       Bacharel em Direito pela Pontifícia Universidade Católica de Minas Gerais, Danniel Stehling Fernandes acumula mais de vinte anos de experiência em processos contenciosos cíveis e tributários. A atuação se concentra em crédito tributário: identificação, aproveitamento administrativo e judicial, e revisão dos tributos efetivamente devidos.
+      </p>
+      <p>
+       Idealizou e desenvolveu modelo próprio de gestão de processos judiciais, aplicado às empresas em que atua como diretor jurídico desde 2006. Conduz negociações junto à Receita Federal do Brasil e responde tecnicamente por todas as peças produzidas pelo escritório.
+      </p>
+      <p>
+       Em 2018 fundou sociedade individual de advocacia, por meio da qual presta consultoria jurídica preventiva — com o objetivo declarado de resolver a questão antes que ela vire processo.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section id="areas">
+    <div class="wrap">
+     <p class="label">
+      Áreas de atuação
+     </p>
+     <h2>
+      Onde o trabalho se concentra
+     </h2>
+     <div class="grid">
+      <div class="card">
+       <span class="num">
+        01
+       </span>
+       <h3>
+        Direito Tributário
+       </h3>
+       <p>
+        Créditos tributários e seu aproveitamento nas vias administrativa e judicial, revisão de tributos a recolher e negociação junto à Receita Federal do Brasil.
+       </p>
+      </div>
+      <div class="card">
+       <span class="num">
+        02
+       </span>
+       <h3>
+        Contencioso Cível e Tributário
+       </h3>
+       <p>
+        Condução de processos judiciais em todas as instâncias, com modelo próprio de gestão de carteira processual desenvolvido ao longo de duas décadas.
+       </p>
+      </div>
+      <div class="card">
+       <span class="num">
+        03
+       </span>
+       <h3>
+        Governança Corporativa
+       </h3>
+       <p>
+        Implantação de boas práticas de governança, definição de alçadas de decisão, políticas internas e estruturação de acordos entre sócios.
+       </p>
+      </div>
+      <div class="card">
+       <span class="num">
+        04
+       </span>
+       <h3>
+        Direito Imigratório — Estados Unidos
+       </h3>
+       <p>
+        Orientação jurídica a pessoas e empresas brasileiras em processos imigratórios para os Estados Unidos: análise de requisitos, organização documental no Brasil e articulação com advogado licenciado nos EUA.
+       </p>
+      </div>
+      <div class="card">
+       <span class="num">
+        05
+       </span>
+       <h3>
+        Contratos Empresariais
+       </h3>
+       <p>
+        Elaboração e negociação de contratos com fornecedores e clientes, incluindo revisão de instrumentos em vigor e adequação de cláusulas de risco.
+       </p>
+      </div>
+      <div class="card">
+       <span class="num">
+        06
+       </span>
+       <h3>
+        Direito Registral e Notarial
+       </h3>
+       <p>
+        Registro de imóveis, transmissão de bem gravado com usufruto e questões registrais correlatas — tema de duas publicações do autor.
+       </p>
+      </div>
+      <div class="card">
+       <span class="num">
+        07
+       </span>
+       <h3>
+        Parcerias Público-Privadas
+       </h3>
+       <p>
+        Estruturação e acompanhamento jurídico de projetos de parceria entre entes públicos e a iniciativa privada.
+       </p>
+      </div>
+      <div class="card">
+       <span class="num">
+        08
+       </span>
+       <h3>
+        Consultoria Preventiva
+       </h3>
+       <p>
+        Análise jurídica anterior ao litígio, orientada a evitar a via judicial antes que o processo se instaure.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="trajetoria">
+    <div class="wrap">
+     <p class="label">
+      Trajetória
+     </p>
+     <h2>
+      Direção jurídica desde 2006
+     </h2>
+     <ul class="tl">
+      <li>
+       <p class="period">
+        Desde 2018
+       </p>
+       <p class="role">
+        Fundador e Responsável Técnico
+       </p>
+       <p class="org">
+        Danniel Stehling Fernandes Sociedade Individual de Advocacia
+       </p>
+      </li>
+      <li>
+       <p class="period">
+        Desde 2022
+       </p>
+       <p class="role">
+        Diretor Jurídico
+       </p>
+       <p class="org">
+        Amplitude Vendas Ltda.
+       </p>
+      </li>
+      <li>
+       <p class="period">
+        Desde 2019
+       </p>
+       <p class="role">
+        Diretor Jurídico
+       </p>
+       <p class="org">
+        HD Comércio de Peças e Acessórios Automotivos Ltda.
+       </p>
+      </li>
+      <li>
+       <p class="period">
+        Desde 2007
+       </p>
+       <p class="role">
+        Diretor Jurídico
+       </p>
+       <p class="org">
+        Gami Peças Ltda.
+       </p>
+      </li>
+      <li>
+       <p class="period">
+        2006 — 2013
+       </p>
+       <p class="role">
+        Diretor Jurídico
+       </p>
+       <p class="org">
+        Vida Telecomunicações Ltda.
+       </p>
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section id="publicacoes">
+    <div class="wrap">
+     <p class="label">
+      Publicações
+     </p>
+     <h2>
+      Produção autoral
+     </h2>
+     <ul class="stack">
+      <li>
+       <div>
+        <p class="deg">
+         A Transmissão de Imóvel Gravado com Usufruto no Registro de Imóveis
+        </p>
+        <p class="inst">
+         1ª edição · Belo Horizonte · 24 páginas
+        </p>
+       </div>
+       <span class="yr">
+        2005
+       </span>
+      </li>
+      <li>
+       <div>
+        <p class="deg">
+         Registro de Imóveis: Uma Garantia ao Cidadão
+        </p>
+        <p class="inst">
+         1ª edição · Belo Horizonte · 34 páginas
+        </p>
+       </div>
+       <span class="yr">
+        2005
+       </span>
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section id="formacao">
+    <div class="wrap">
+     <p class="label">
+      Formação
+     </p>
+     <h2>
+      Formação acadêmica
+     </h2>
+     <ul class="stack">
+      <li>
+       <div>
+        <p class="deg">
+         Pós-graduação em Direito Migratório
+        </p>
+        <p class="inst">
+         CEDIN — Centro de Direito Internacional
+        </p>
+       </div>
+       <span class="yr">
+        2024
+       </span>
+      </li>
+      <li>
+       <div>
+        <p class="deg">
+         Pós-graduação lato sensu em Direito Tributário
+        </p>
+        <p class="inst">
+         Pontifícia Universidade Católica de Minas Gerais
+        </p>
+       </div>
+       <span class="yr">
+        2014
+       </span>
+      </li>
+      <li>
+       <div>
+        <p class="deg">
+         Especialização em Direito Internacional Público
+        </p>
+        <p class="inst">
+         PUC Minas / CEDIN — “Os Direitos Humanos na Perspectiva Internacionalista”
+        </p>
+       </div>
+       <span class="yr">
+        2013
+       </span>
+      </li>
+      <li>
+       <div>
+        <p class="deg">
+         Pós-graduação em Boas Práticas de Governança Corporativa
+        </p>
+        <p class="inst">
+         Instituto Brasileiro de Governança Corporativa (IBGC)
+        </p>
+       </div>
+       <span class="yr">
+        2011
+       </span>
+      </li>
+      <li>
+       <div>
+        <p class="deg">
+         Bacharelado em Direito
+        </p>
+        <p class="inst">
+         Pontifícia Universidade Católica de Minas Gerais
+        </p>
+       </div>
+       <span class="yr">
+        2005
+       </span>
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section id="contato">
+    <div class="wrap">
+     <p class="label">
+      Contato
+     </p>
+     <h2>
+      Atendimento
+     </h2>
+     <div class="contact">
+      <div class="ci">
+       <p class="k">
+        Escritório
+       </p>
+       <p class="v">
+        Rua Belmiro Braga, 329 — 2º andar
+        <br/>
+        <span>
+         Belo Horizonte, MG — CEP 30770-550
+        </span>
+       </p>
+      </div>
+      <div class="ci">
+       <p class="k">
+        Telefone
+       </p>
+       <p class="v">
+        <a href="tel:+553134624668">
+         +55 31 3462-4668
+        </a>
+       </p>
+      </div>
+      <div class="ci">
+       <p class="k">
+        Celular e WhatsApp
+       </p>
+       <p class="v">
+        <a href="https://wa.me/5531998504600">
+         +55 31 99850-4600
+        </a>
+       </p>
+      </div>
+      <div class="ci">
+       <p class="k">
+        E-mail
+       </p>
+       <p class="v">
+        <a href="mailto:dannielf@gmail.com">
+         dannielf@gmail.com
+        </a>
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="wrap">
+    <p class="fnote">
+     Este sítio eletrônico tem caráter exclusivamente informativo, em conformidade com o Código de Ética e Disciplina da OAB e com o Provimento nº 205/2021 do Conselho Federal da OAB. As informações aqui publicadas não constituem oferta de serviços, captação de clientela ou consulta jurídica.
+    </p>
+    <div class="fbar">
+     <span>
+      © 2026 Danniel Stehling Fernandes
+     </span>
+     <span>
+      OAB/MG 103.994
+     </span>
+    </div>
+   </div>
+  </footer>
+  <a aria-label="Conversar pelo WhatsApp" class="wa" href="https://wa.me/5531998504600?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20o%20advogado." id="wa" rel="noopener" target="_blank">
+   <svg aria-hidden="true" viewbox="0 0 24 24">
+    <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.19 4.23-9.41 9.42-9.41 2.51 0 4.88.98 6.65 2.76a9.35 9.35 0 0 1 2.76 6.66c0 5.19-4.23 9.41-9.42 9.41zm8.01-17.42A11.29 11.29 0 0 0 12.04.75C5.79.75.71 5.83.71 12.08c0 2 .52 3.95 1.52 5.67L.61 23.6l6-1.57a11.3 11.3 0 0 0 5.43 1.38h.01c6.25 0 11.33-5.08 11.33-11.33 0-3.03-1.18-5.87-3.32-8z">
+    </path>
+   </svg>
+   <span>
+    Conversar pelo WhatsApp
+   </span>
+  </a>
+ </body>
+</html>
